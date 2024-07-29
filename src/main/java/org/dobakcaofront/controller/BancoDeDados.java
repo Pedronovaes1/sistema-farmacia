@@ -2,10 +2,7 @@ package org.dobakcaofront.controller;
 
 import org.dobakcaofront.model.Item;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 public class BancoDeDados {
     //atributos
@@ -19,9 +16,14 @@ public class BancoDeDados {
     //método
 
     public void cadastrar(Item item){
-        OutputStream os = new FileOutputStream(" ", true); //ela localiza o arquivo e caso não exista ela cria do zero
+        try{
+        OutputStream os = new FileOutputStream("medicamentos.txt", true); //ela localiza o arquivo e caso não exista ela cria do zero
         OutputStreamWriter osw;
         BufferedWriter bw;
+        }catch (Exception e){
+            System.out.println("Não conseguiu cadastrar o medicamento");
+            System.out.println(e);
+        }
     }
 
     public void editar(int codigo){
