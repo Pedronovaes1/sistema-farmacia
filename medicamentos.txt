@@ -1,4 +1,2 @@
-Dipirona 500mg,100,Caixa
-bromoprida 500mg,50,Caixa
-Tilenol 150ml,150,Frasco
-Buscovem comprimidos,30,Caixa
+Dipirona 500mg,30,Caixa
+Tilenol 200ml XPSK,300,Frasco de 200ml

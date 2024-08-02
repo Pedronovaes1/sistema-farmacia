@@ -16,10 +16,10 @@ public class BancoDeDados {
 
     //método
 
-    public void cadastrar(Item item){
+    public void cadastrar(Item item, boolean opcao){
         try{
             //ela localiza o arquivo e caso não exista ela cria do zero
-            OutputStream os = new FileOutputStream("medicamentos.txt", true);
+            OutputStream os = new FileOutputStream("medicamentos.txt", opcao);
             // Prepara o arquivo para a escrita
             OutputStreamWriter osw = new OutputStreamWriter(os);
             // Escreve os dados no osw
@@ -45,8 +45,22 @@ public class BancoDeDados {
         }
     }
 
-    public void editar(int codigo){
+    public void editar(int codigo, ArrayList<Item> itens){
+        Item item = itens.get(codigo);
+        itens.remove(codigo);
+        item.setNome("Tilenol 200ml XPSK");
+        item.setQuatidade(300);
+        item.setTipo("Frasco de 200ml");
 
+        itens.add(codigo,item);
+
+        for(int i =0; i<itens.size(); i++){
+            if(i==0){
+                cadastrar(itens.get(i), false);
+            }else{
+                cadastrar(itens.get(i), true);
+            }
+        }
     }
 
     public Item pesquisar(int codigo, ArrayList<Item> itens){
@@ -59,8 +73,16 @@ public class BancoDeDados {
         }
     }
 
-    public void excluir(int codigo){
+    public void excluir(int codigo, ArrayList<Item> itens){
+        itens.remove(codigo);
 
+        for(int i =0; i<itens.size(); i++){
+            if(i==0){
+                cadastrar(itens.get(i), false);
+            }else{
+                cadastrar(itens.get(i), true);
+            }
+        }
     }
 
     public ArrayList<Item> ler(){
