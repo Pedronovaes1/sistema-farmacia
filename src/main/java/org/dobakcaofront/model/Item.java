@@ -7,7 +7,7 @@ public class Item {
     private int quatidade;
     private String tipo;
 
-    public Item(String nome, int codigo, int quatidade, String tipo) {
+    public Item(String nome, int quatidade, String tipo) {
         this.nome = nome;
         this.codigo = codigo;
         this.quatidade = quatidade;
